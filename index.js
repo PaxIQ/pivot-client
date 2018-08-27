@@ -6,7 +6,7 @@ const classes = require('./classes');
 
 class Client {
   constructor(options) {
-    const { url, airline, token } = options;
+    const { url, airline, token, timeout = (30 * 1000) } = options;
 
     if (!url)
       throw new Error(`You must provide an 'url' property.`);
@@ -20,7 +20,8 @@ class Client {
       baseURL: url,
       headers: {
         'Videcom-Airline': airline,
-        'Videcom-Token': token
+        'Videcom-Token': token,
+        'Videcom-Timeout': timeout
       }
     });
   }
