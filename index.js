@@ -67,6 +67,11 @@ class Client {
     return this._axios
       .post(`command`, { command });
   }
+
+  ssrp(report, format = `json`) {
+    return this._axios
+      .get(`ssrp/${report}?format=${format}`);
+  }
 }
 
 debug(`exporting...`);
