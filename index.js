@@ -72,6 +72,12 @@ class Client {
     return this._axios
       .get(`ssrp/${report}?format=${format}`);
   }
+
+  soap(xml) {
+    return this._axios
+      .post(`soap`, xml, { headers: { 'Content-Type': `text/xml` } });
+  }
+
 }
 
 debug(`exporting...`);
